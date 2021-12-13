@@ -1,0 +1,10 @@
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+p {
+  font-family: Segoe;
+  color: brown;
+}
+.label {
+  margin-top: 10px;
+}

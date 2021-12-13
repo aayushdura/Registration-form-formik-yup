@@ -1,0 +1,15 @@
+.title {
+  padding: 2ch;
+  margin-left: 1ch;
+}
+body {
+  display: flex;
+  color: rgb(63, 57, 57);
+  font-weight: 400;
+  align-items: center;
+  justify-content: center;
+}
+.form {
+  padding: 2ch;
+  width: 80ch;
+}
