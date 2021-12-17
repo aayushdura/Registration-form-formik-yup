@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 // import { useLocation } from "react-router-dom";
 
 const Success = () => {
+  const [values, setvalues] = useState();
   const userDatas = JSON.parse(localStorage.getItem("userData"));
   console.log(userDatas);
+  useEffect(() => {
+    setvalues(userDatas);
+  }, [userDatas]);
 
   return (
     <div>
@@ -25,75 +29,75 @@ const Success = () => {
             <Row>
               <Col>Name</Col>
               <Col>
-                {userDatas?.studentfname}
-                {userDatas?.studentlname}
+                {values?.studentfname}
+                {values?.studentlname}
               </Col>
             </Row>
             <Row>
               <Col>Date of birth</Col>
-              <Col>{userDatas?.studentdob}</Col>
+              <Col>{values?.studentdob}</Col>
             </Row>
             <Row>
               <Col>Gender</Col>
-              <Col>{userDatas?.studentgender}</Col>
+              <Col>{values?.studentgender}</Col>
             </Row>
             <Row>
               <Col>Sibblings</Col>
-              <Col>{userDatas?.studentsibdetails}</Col>
+              <Col>{values?.studentsibdetails}</Col>
             </Row>
             <Row>
               <Col>Address</Col>
-              <Col>{userDatas?.studentaddress}</Col>
+              <Col>{values?.studentaddress}</Col>
             </Row>
           </Row>
           <Row style={{ margin: "4px" }}>
             <Row>
               <Col>Father's name</Col>
               <Col>
-                {userDatas?.fatherfname}
-                {userDatas?.fatherlname}
+                {values?.fatherfname}
+                {values?.fatherlname}
               </Col>
             </Row>
             <Row>
               <Col>Qualification</Col>
-              <Col>{userDatas?.fatherqualification}</Col>
+              <Col>{values?.fatherqualification}</Col>
             </Row>
             <Row>
               <Col>Contact</Col>
-              <Col>{userDatas?.fatherphn}</Col>
+              <Col>{values?.fatherphn}</Col>
             </Row>
             <Row>
               <Col>Email</Col>
-              <Col>{userDatas?.fatheremail}</Col>
+              <Col>{values?.fatheremail}</Col>
             </Row>
             <Row>
               <Col>Occupation</Col>
-              <Col>{userDatas?.fatheroccup}</Col>
+              <Col>{values?.fatheroccup}</Col>
             </Row>
           </Row>
           <Row style={{ margin: "4px" }}>
             <Row>
               <Col>Mother's name</Col>
               <Col>
-                {userDatas?.motherfname}
-                {userDatas?.motherlname}
+                {values?.motherfname}
+                {values?.motherlname}
               </Col>
             </Row>
             <Row>
               <Col>Qualification</Col>
-              <Col>{userDatas?.motherqualification}</Col>
+              <Col>{values?.motherqualification}</Col>
             </Row>
             <Row>
               <Col>Contact</Col>
-              <Col>{userDatas?.motherphn}</Col>
+              <Col>{values?.motherphn}</Col>
             </Row>
             <Row>
               <Col>Email</Col>
-              <Col>{userDatas?.motheremail}</Col>
+              <Col>{values?.motheremail}</Col>
             </Row>
             <Row>
               <Col>Occupation</Col>
-              <Col>{userDatas?.motheroccup}</Col>
+              <Col>{values?.motheroccup}</Col>
             </Row>
           </Row>
         </Row>
