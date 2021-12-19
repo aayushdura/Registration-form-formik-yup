@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Col, Row } from "react-bootstrap";
-// import { useLocation } from "react-router-dom";
+import { Col, Row, Button } from "react-bootstrap";
+import { useNavigate } from "react-router";
 
 const Success = () => {
   const [values, setvalues] = useState();
-  const userDatas = JSON.parse(localStorage.getItem("userData"));
-  console.log(userDatas);
   useEffect(() => {
+    const userDatas = JSON.parse(localStorage.getItem("userData"));
+    console.log(userDatas);
     setvalues(userDatas);
-  }, [userDatas]);
-
+  }, []);
+  const navigate = useNavigate();
   return (
     <div>
       <h1>Registered Student:</h1>
@@ -102,6 +102,15 @@ const Success = () => {
           </Row>
         </Row>
       </div>
+      <Button
+        style={{ marginLeft: "18ch", marginTop: "2ch" }}
+        type="button"
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        Register New
+      </Button>
     </div>
   );
 };

@@ -9,7 +9,6 @@ const Formcomp = ({ validation, initialvals }) => {
     initialValues: initialvals,
     validationSchema: validation,
     onSubmit: () => {
-      console.log(formik.values);
       if (formik.isValid === true) {
         alert("Registered");
         navigate("/success");
