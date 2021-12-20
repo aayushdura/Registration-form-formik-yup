@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Col, Button, Row } from "react-bootstrap";
 import { useFormik } from "formik";
-import { useNavigate } from "react-router";
 import "./form.css";
+import RegisterPopup from "./reactbootmodal";
 const Formcomp = ({ validation, initialvals }) => {
-  const navigate = useNavigate();
+  const [show, setShow] = useState(false);
   const formik = useFormik({
     initialValues: initialvals,
     validationSchema: validation,
     onSubmit: () => {
       if (formik.isValid === true) {
-        alert("Registered");
-        navigate("/success");
+        setShow(true);
         localStorage.setItem("userData", JSON.stringify(formik.values));
       }
     },
@@ -19,6 +18,7 @@ const Formcomp = ({ validation, initialvals }) => {
 
   return (
     <div className="container">
+      <RegisterPopup show={show} setShow={setShow} />
       <Form onSubmit={formik.handleSubmit}>
         <Form.Label className="label">Name of Applicant</Form.Label>
         <Row>
@@ -169,7 +169,7 @@ const Formcomp = ({ validation, initialvals }) => {
               type="text"
               name="motherfname"
               placeholder="First"
-              {...formik.getFieldProps("motherlname")}
+              {...formik.getFieldProps("motherfname")}
             />
             {formik.errors.motherfname && formik.touched.motherfname ? (
               <p>{formik.errors.motherfname}</p>
@@ -180,7 +180,7 @@ const Formcomp = ({ validation, initialvals }) => {
               type="text"
               name="motherlname"
               placeholder="Last"
-              {...formik.getFieldProps("motherfname")}
+              {...formik.getFieldProps("motherlname")}
             />
             {formik.errors.motherlname && formik.touched.motherlname ? (
               <p>{formik.errors.motherlname}</p>
